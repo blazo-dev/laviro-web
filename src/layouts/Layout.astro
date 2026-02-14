@@ -2,6 +2,7 @@
 import "@fontsource-variable/inter";
 import "@fontsource-variable/material-symbols-outlined";
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ import "../styles/global.css";
     <title>Laviro Web Solutions</title>
   </head>
   <body class="bg-background text-foreground font-body m-0 h-full w-full">
+    <Navbar />
     <slot />
   </body>
 </html>
