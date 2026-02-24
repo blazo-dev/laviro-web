@@ -24,7 +24,7 @@ const duplicatedTechnologies = [
   <div class="carousel-container">
     <div class="carousel-track">
       {
-        duplicatedTechnologies.map(({ color, icon, name }, index) => (
+        duplicatedTechnologies.map(({ color, icon, name }) => (
           <div class="carousel-item flex items-center gap-2 text-xl text-foreground">
             <span class={`font-icon text-2xl ${color}`}>{icon}</span>
             <span class="font-bold">{name}</span>
