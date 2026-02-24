@@ -1,12 +1,22 @@
 ---
 const technologies = [
-  { name: "React", icon: "code", color: "text-primary" },
-  { name: "Next.js", icon: "flash_on", color: "text-primary" },
-  { name: "Astro", icon: "rocket_launch", color: "text-primary" },
-  { name: "Tailwind", icon: "palette", color: "text-secondary" },
+  { name: "React", icon: "widgets", color: "text-primary" },
+  { name: "Next.js", icon: "bolt", color: "text-primary" },
+  { name: "TypeScript", icon: "data_object", color: "text-primary" },
+  { name: "Astro", icon: "rocket_launch", color: "text-secondary" },
+  { name: "Tailwind CSS", icon: "style", color: "text-secondary" },
+  { name: "Node.js", icon: "lan", color: "text-primary" },
+  { name: "PostgreSQL", icon: "database", color: "text-secondary" },
   { name: "AWS", icon: "cloud", color: "text-primary" },
-  { name: "Vercel", icon: "cloud_upload", color: "text-primary" },
-  { name: "TypeScript", icon: "code_blocks", color: "text-secondary" },
+  { name: "Docker", icon: "package_2", color: "text-primary" },
+  { name: "Figma", icon: "design_services", color: "text-secondary" },
+];
+
+// Duplicate enough times for seamless loop
+const duplicatedTechnologies = [
+  ...technologies,
+  ...technologies,
+  ...technologies,
 ];
 ---
 
@@ -14,7 +24,7 @@ const technologies = [
   <div class="carousel-container">
     <div class="carousel-track">
       {
-        [...technologies, ...technologies].map(({ color, icon, name }) => (
+        duplicatedTechnologies.map(({ color, icon, name }, index) => (
           <div class="carousel-item flex items-center gap-2 text-xl text-foreground">
             <span class={`font-icon text-2xl ${color}`}>{icon}</span>
             <span class="font-bold">{name}</span>
@@ -37,7 +47,11 @@ const technologies = [
     &-track {
       display: flex;
       gap: 4rem;
-      animation: scroll 20s linear infinite;
+      animation: scroll 30s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
     }
 
     &-item {
@@ -47,11 +61,11 @@ const technologies = [
   }
 
   @keyframes scroll {
-    0% {
+    from {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(-25%);
+    to {
+      transform: translateX(calc(-100% / 3));
     }
   }
 </style>
