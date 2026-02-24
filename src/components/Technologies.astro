@@ -1,0 +1,57 @@
+---
+const technologies = [
+  { name: "React", icon: "code", color: "text-primary" },
+  { name: "Next.js", icon: "flash_on", color: "text-primary" },
+  { name: "Astro", icon: "rocket_launch", color: "text-primary" },
+  { name: "Tailwind", icon: "palette", color: "text-secondary" },
+  { name: "AWS", icon: "cloud", color: "text-primary" },
+  { name: "Vercel", icon: "cloud_upload", color: "text-primary" },
+  { name: "TypeScript", icon: "code_blocks", color: "text-secondary" },
+];
+---
+
+<div class="py-8 border-y border-border bg-surface/50 overflow-hidden">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      {
+        [...technologies, ...technologies].map(({ color, icon, name }) => (
+          <div class="carousel-item flex items-center gap-2 text-xl text-foreground">
+            <span class={`font-icon text-2xl ${color}`}>{icon}</span>
+            <span class="font-bold">{name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .carousel {
+    &-container {
+      display: flex;
+      width: min(100% - 2rem, 1280px);
+      margin-inline: auto;
+      overflow: hidden;
+    }
+
+    &-track {
+      display: flex;
+      gap: 4rem;
+      animation: scroll 20s linear infinite;
+    }
+
+    &-item {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+</style>
