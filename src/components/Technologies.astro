@@ -1,31 +1,27 @@
 ---
 const technologies = [
-  { name: "React", icon: "widgets", color: "text-primary" },
-  { name: "Next.js", icon: "bolt", color: "text-primary" },
-  { name: "TypeScript", icon: "data_object", color: "text-primary" },
-  { name: "Astro", icon: "rocket_launch", color: "text-secondary" },
-  { name: "Tailwind CSS", icon: "style", color: "text-secondary" },
-  { name: "Node.js", icon: "lan", color: "text-primary" },
-  { name: "PostgreSQL", icon: "database", color: "text-secondary" },
-  { name: "AWS", icon: "cloud", color: "text-primary" },
-  { name: "Docker", icon: "package_2", color: "text-primary" },
-  { name: "Figma", icon: "design_services", color: "text-secondary" },
+  { name: 'React', icon: 'widgets', color: 'text-primary' },
+  { name: 'Next.js', icon: 'bolt', color: 'text-primary' },
+  { name: 'TypeScript', icon: 'data_object', color: 'text-primary' },
+  { name: 'Astro', icon: 'rocket_launch', color: 'text-secondary' },
+  { name: 'Tailwind CSS', icon: 'style', color: 'text-secondary' },
+  { name: 'Node.js', icon: 'lan', color: 'text-primary' },
+  { name: 'PostgreSQL', icon: 'database', color: 'text-secondary' },
+  { name: 'AWS', icon: 'cloud', color: 'text-primary' },
+  { name: 'Docker', icon: 'package_2', color: 'text-primary' },
+  { name: 'Figma', icon: 'design_services', color: 'text-secondary' },
 ];
 
 // Duplicate enough times for seamless loop
-const duplicatedTechnologies = [
-  ...technologies,
-  ...technologies,
-  ...technologies,
-];
+const duplicatedTechnologies = [...technologies, ...technologies, ...technologies];
 ---
 
-<div class="py-8 border-y border-border bg-surface/50 overflow-hidden">
+<div class="border-border bg-surface/50 overflow-hidden border-y py-8">
   <div class="carousel-container">
     <div class="carousel-track">
       {
         duplicatedTechnologies.map(({ color, icon, name }) => (
-          <div class="carousel-item flex items-center gap-2 text-xl text-foreground">
+          <div class="carousel-item text-foreground flex items-center gap-2 text-xl">
             <span class={`font-icon text-2xl ${color}`}>{icon}</span>
             <span class="font-bold">{name}</span>
           </div>
