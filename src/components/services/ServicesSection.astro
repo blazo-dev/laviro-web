@@ -1,0 +1,77 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+
+const services = [
+    {
+        title: "Desarrollo Web Full-Stack",
+        description:
+            "Sitios web rápidos, modernos y optimizados para SEO. Utilizamos las últimas tecnologías como React y Next.js.",
+        icon: "code",
+        iconBg: "bg-primary/10",
+        iconColor: "text-primary",
+        linkColor: "text-primary",
+        shadowColor: "hover:shadow-primary/10",
+        badge: "POPULAR",
+        border: "border-border",
+    },
+    {
+        title: "Diseño UI/UX",
+        description:
+            "Interfaces intuitivas y atractivas centradas en el usuario. Prototipado, wireframing y sistemas de diseño.",
+        icon: "palette",
+        iconBg: "bg-secondary/10",
+        iconColor: "text-secondary",
+        linkColor: "text-secondary",
+        shadowColor: "hover:shadow-secondary/10",
+        border: "border-border",
+    },
+    {
+        title: "Consultoría Cloud & SaaS",
+        description:
+            "Arquitectura escalable en la nube (AWS, Vercel). Transformamos tus ideas en productos Software as a Service.",
+        icon: "cloud_sync",
+        iconBg: "bg-purple-500/10",
+        iconColor: "text-purple-500",
+        linkColor: "text-purple-500",
+        shadowColor: "hover:shadow-purple-500/10",
+        border: "border-border",
+    },
+    {
+        title: "Desarrollo Móvil",
+        description:
+            "Aplicaciones nativas e híbridas para iOS y Android que ofrecen una experiencia de usuario fluida.",
+        icon: "smartphone",
+        iconBg: "bg-pink-500/10",
+        iconColor: "text-pink-500",
+        linkColor: "text-pink-500",
+        shadowColor: "hover:shadow-pink-500/10",
+        border: "border-border",
+    },
+];
+---
+
+<section class="py-24 px-6 relative" id="servicios">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2
+                class="text-primary font-semibold tracking-wide uppercase text-sm mb-2">
+                Nuestros Servicios
+            </h2>
+
+            <h3
+                class="text-4xl md:text-5xl font-bold text-surface-foreground mb-6">
+                Soluciones Digitales
+                <span class="gradient-text">Completas</span>
+            </h3>
+
+            <p class="text-foreground max-w-2xl mx-auto text-lg">
+                Diseñamos y desarrollamos productos digitales que resuelven
+                problemas reales y escalan con tu negocio.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service) => <ServiceCard {...service} />)}
+        </div>
+    </div>
+</section>
