@@ -1,0 +1,43 @@
+---
+const {
+    title,
+    description,
+    icon,
+    linkColor,
+    iconBg,
+    iconColor,
+    shadowColor,
+    badge,
+    border = "border-border",
+} = Astro.props;
+---
+
+<div
+    class={`group relative p-8 bg-surface rounded-2xl border ${border} shadow-sm hover:shadow-xl ${shadowColor} transition-all duration-300 hover:-translate-y-1 overflow-hidden`}>
+    {
+        badge && (
+            <div class="absolute top-0 right-0 bg-primary/10 text-surface-foreground text-xs font-bold px-3 py-1 rounded-bl-xl border-l border-b border-primary/10">
+                {badge}
+            </div>
+        )
+    }
+
+    <div
+        class={`w-14 h-14 ${iconBg} ${iconColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+        <span class="font-icon text-3xl">{icon}</span>
+    </div>
+
+    <h4 class="text-xl font-bold mb-3 text-surface-foreground">
+        {title}
+    </h4>
+
+    <p class="text-surface-foreground mb-6 leading-relaxed">
+        {description}
+    </p>
+
+    <a
+        class={`${linkColor} font-semibold flex items-center gap-2 text-sm hover:gap-3 transition-all`}
+        href="#">
+        Saber más <span class="font-icon text-sm">arrow_forward</span>
+    </a>
+</div>
