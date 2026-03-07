@@ -1,0 +1,71 @@
+---
+const technologies = [
+  { name: "React", icon: "widgets", color: "text-primary" },
+  { name: "Next.js", icon: "bolt", color: "text-primary" },
+  { name: "TypeScript", icon: "data_object", color: "text-primary" },
+  { name: "Astro", icon: "rocket_launch", color: "text-secondary" },
+  { name: "Tailwind CSS", icon: "style", color: "text-secondary" },
+  { name: "Node.js", icon: "lan", color: "text-primary" },
+  { name: "PostgreSQL", icon: "database", color: "text-secondary" },
+  { name: "AWS", icon: "cloud", color: "text-primary" },
+  { name: "Docker", icon: "package_2", color: "text-primary" },
+  { name: "Figma", icon: "design_services", color: "text-secondary" },
+];
+
+// Duplicate enough times for seamless loop
+const duplicatedTechnologies = [
+  ...technologies,
+  ...technologies,
+  ...technologies,
+];
+---
+
+<div class="py-8 border-y border-border bg-surface/50 overflow-hidden">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      {
+        duplicatedTechnologies.map(({ color, icon, name }) => (
+          <div class="carousel-item flex items-center gap-2 text-xl text-foreground">
+            <span class={`font-icon text-2xl ${color}`}>{icon}</span>
+            <span class="font-bold">{name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .carousel {
+    &-container {
+      display: flex;
+      width: min(100% - 2rem, 1280px);
+      margin-inline: auto;
+      overflow: hidden;
+    }
+
+    &-track {
+      display: flex;
+      gap: 4rem;
+      animation: scroll 30s linear infinite;
+
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+
+    &-item {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+</style>
