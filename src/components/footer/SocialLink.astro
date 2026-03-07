@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  icon: string;
+}
+const { href, icon } = Astro.props;
+---
+
+<a
+  class="bg-surface/60 hover:bg-surface-foreground/50 hover:text-primary hover:shadow-glow flex size-8 items-center justify-center rounded-full shadow-sm transition-all duration-300"
+  href={href}
+>
+  <span class="font-icon text-xl leading-none select-none">{icon}</span>
+</a>
