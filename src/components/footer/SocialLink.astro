@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  icon: string;
+  label: string;
+}
+
+const { href, icon, label } = Astro.props as Props;
+---
+
+<a
+  href={href}
+  aria-label={label}
+  class="bg-surface/60 hover:bg-surface-foreground/50 hover:text-primary hover:shadow-glow inline-flex size-8 items-center justify-center rounded-full shadow-sm transition-all duration-300"
+>
+  <span aria-hidden="true" class="font-icon text-xl leading-none select-none">
+    {icon}
+  </span>
+</a>

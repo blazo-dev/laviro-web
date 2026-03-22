@@ -1,0 +1,69 @@
+---
+import TeamCard from './TeamCard.astro';
+
+const team = [
+  {
+    name: 'Alex Morgan',
+    role: 'Lead Developer',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDnGt8mzzUYHXXqJQnPNxnyB2bWjWx_FnVhUeGZJBTGRt1EW5Jxt8CyAoTkT8u61EkgcPgN1UMWuSvI9tesFSwftt7eN79kwXBJiBC-kpvMnqPo4YFIyOcqwSZ8GsMC0KxKDuoV10hbJKAWJl5n1W-tR0NaFaFjvXfb5_PrmFzqbLRzUe91rzb2lhdVgpILdUBY61g1uGWgr1KTUPsSMn4g0icpISUn7DKW9dRGeyNF_thcqebSCtl3qmpyqGpnhkmEkOCgIHTJgnQG',
+    roleColor: 'text-primary',
+    borderColor: 'border-primary/10',
+    backBg: 'bg-primary',
+    backText: 'text-foreground',
+    about:
+      '10 años de experiencia en desarrollo full-stack. Obsesionado con el código limpio y la arquitectura escalable.',
+    skills: ['Node.js', 'Python', 'System Design'],
+  },
+  {
+    name: 'Sarah Chen',
+    role: 'Product Designer',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuB1E0DbLRul-xsUCi0RJ7saCrWaJ12eSRjYPTI9tzDZWZ-GPNnnWww1_d33U3nwB-P7pVZHj7urbzljn1c5x5VWMpbB5xgPG6l4nr1uEPGzBRmFmAp4pkIJC3IP9GMF7BeAA8XFpvcZSEDV2Xgr0TPWs-_A5BXG762b-TgcYs5jjLpyhc6xMHrsG7w9iUOV4Fe6EwKDFSgl13jeo7ZRsyU8RAIgMyNUTddLBkmm2eBntBYoX8RcLilq4toOwYvMPg2Za_erBBppTol9',
+    roleColor: 'text-secondary',
+    borderColor: 'border-secondary/10',
+    backBg: 'bg-secondary',
+    backText: 'text-foreground',
+    about:
+      'Especialista en crear interfaces que enamoran. Su enfoque combina estética y funcionalidad centrada en el usuario.',
+    skills: ['Figma', 'UX Research', 'Prototyping'],
+  },
+  {
+    name: 'Marcus Johnson',
+    role: 'Backend Architect',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDUyd8pD9uPHf5OrtE5VhlP8CJ-NG27xjl842U8KNeoYnPmP7RwXdnJkzFC3pY4D1WzJJ5yH5ox__Qevd_rH3FGH3ojmD8XES4RrDtJ_QEWGxrCOI5J8hi67xhwtd_v9bYRg7avPBOCV9BQ-ONCszoNATppdaaX7jGqr8l_BceKIyS4djcsk4Y0wMOyHXudi-Lyya6TZN9IkKrsOTyQb-JN4zsUD8eDDvQs6OJbe1htR5ezfq8r5RczHAOIe3fRLW2yArmIZ4HvvJoU',
+    roleColor: 'text-purple-500',
+    borderColor: 'border-purple-500/10',
+    backBg: 'bg-purple-600',
+    backText: 'text-foreground',
+    about:
+      'El cerebro detrás de la infraestructura. Experto en seguridad, bases de datos y servicios en la nube.',
+    skills: ['AWS', 'Docker', 'Kubernetes'],
+  },
+];
+---
+
+<section class="bg-background relative px-6 py-24" id="nosotros">
+  <div class="mx-auto max-w-7xl">
+    <!-- Header -->
+    <div class="mb-16 text-center">
+      <h2 class="text-primary mb-2 text-sm font-semibold tracking-wide uppercase">El Equipo</h2>
+
+      <h3 class="text-foreground mb-6 text-4xl font-bold">Mentes Creativas</h3>
+    </div>
+
+    <!-- Grid Wrapper -->
+    <div class="relative">
+      <div class="grid grid-cols-1 items-stretch gap-8 md:grid-cols-3">
+        {
+          team.map((member) => (
+            <div class="flex h-full w-full">
+              <TeamCard {...member} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
