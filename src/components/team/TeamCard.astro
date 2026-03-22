@@ -1,0 +1,65 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  image: string;
+  roleColor: string;
+  borderColor: string;
+  backBg: string;
+  backText: string;
+  about: string;
+  skills: string[];
+}
+
+const { name, role, image, roleColor, borderColor, backBg, backText, about, skills } = Astro.props;
+---
+
+<div class="relative h-[400px] w-full">
+  <div class="flip-card group h-full w-full cursor-pointer">
+    <div class="flip-card-inner h-full w-full">
+      <!-- FRONT -->
+      <div
+        class="flip-card-front border-border bg-surface flex flex-col items-center justify-center p-6 shadow-xl"
+      >
+        <div class={`w-32 h-32 rounded-full overflow-hidden mb-6 border-4 ${borderColor}`}>
+          <img src={image} alt={name} class="h-full w-full object-cover" />
+        </div>
+
+        <h4 class="text-foreground text-xl font-bold">
+          {name}
+        </h4>
+
+        <p class={`${roleColor} font-medium`}>
+          {role}
+        </p>
+
+        <div class="mt-6 flex gap-3">
+          <span class="hover:text-primary font-icon text-surface-foreground transition-colors">
+            link
+          </span>
+
+          <span class="hover:text-primary font-icon text-surface-foreground transition-colors">
+            mail
+          </span>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div
+        class={`flip-card-back ${backBg} ${backText} flex flex-col items-center justify-center p-8`}
+      >
+        <h4 class="mb-2 text-xl font-bold">
+          Sobre {name.split(' ')[0]}
+        </h4>
+
+        <p class="mb-6 text-center text-sm leading-relaxed opacity-90">
+          {about}
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          {skills.map((skill) => <span class="bg-surface rounded px-2 py-1 text-xs">{skill}</span>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

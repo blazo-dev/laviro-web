@@ -5,6 +5,32 @@ import FooterLink from './FooterLink.astro';
 import SocialLink from './SocialLink.astro';
 
 const year = new Date().getFullYear();
+
+const footerColumns = [
+  {
+    title: 'Servicios',
+    links: [
+      { href: '#', label: 'Desarrollo Web' },
+      { href: '#', label: 'Diseño UI/UX' },
+      { href: '#', label: 'Apps Móviles' },
+      { href: '#', label: 'Consultoría' },
+    ],
+  },
+  {
+    title: 'Compañía',
+    links: [
+      { href: '#', label: 'Nosotros' },
+      { href: '#', label: 'Portafolio' },
+      { href: '#', label: 'Carreras' },
+      { href: '#', label: 'Blog' },
+    ],
+  },
+];
+
+const socialLinks = [
+  { href: '#', icon: 'public', label: 'Website' },
+  { href: '#', icon: 'alternate_email', label: 'Email' },
+];
 ---
 
 <footer class="bg-surface text-foreground p-10">
@@ -12,25 +38,25 @@ const year = new Date().getFullYear();
     <div class="border-border grid grid-cols-1 gap-8 border-t pt-10 md:grid-cols-4">
       <Brand />
 
-      <FooterColumn title="Servicios">
-        <FooterLink href="#" label="Desarrollo Web" />
-        <FooterLink href="#" label="Diseño UI/UX" />
-        <FooterLink href="#" label="Apps Móviles" />
-        <FooterLink href="#" label="Consultoría" />
-      </FooterColumn>
-
-      <FooterColumn title="Compañía">
-        <FooterLink href="#" label="Nosotros" />
-        <FooterLink href="#" label="Portafolio" />
-        <FooterLink href="#" label="Carreras" />
-        <FooterLink href="#" label="Blog" />
-      </FooterColumn>
+      {
+        footerColumns.map((column) => (
+          <FooterColumn title={column.title}>
+            {column.links.map((link) => (
+              <FooterLink href={link.href} label={link.label} />
+            ))}
+          </FooterColumn>
+        ))
+      }
 
       <div>
         <h4 class="mb-4 font-bold">Social</h4>
+
         <div class="flex gap-4">
-          <SocialLink href="#" icon="public" />
-          <SocialLink href="#" icon="alternate_email" />
+          {
+            socialLinks.map((social) => (
+              <SocialLink href={social.href} icon={social.icon} label={social.label} />
+            ))
+          }
         </div>
       </div>
     </div>
@@ -46,6 +72,7 @@ const year = new Date().getFullYear();
         <a href="#" class="hover:text-secondary transition-colors duration-300">
           Política de Privacidad
         </a>
+
         <a href="#" class="hover:text-secondary transition-colors duration-300">
           Términos de Servicio
         </a>
