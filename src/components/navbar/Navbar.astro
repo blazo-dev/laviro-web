@@ -1,0 +1,60 @@
+---
+import NavbarBrand from './NavbarBrand.astro';
+import NavbarLinks from './NavbarLinks.astro';
+import MobileMenuButton from './MobileMenuButton.astro';
+import MobileMenu from './MobileMenu.astro';
+---
+
+<header
+  class="bg-glass-panel border-border fixed top-0 z-50 w-full border-b transition-all duration-300"
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <!-- Brand -->
+    <NavbarBrand />
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden items-center gap-8 md:flex">
+      <NavbarLinks />
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-4">
+      <!-- CTA Desktop -->
+      <a
+        href="#contacto"
+        class="bg-primary hover:bg-primary-dark shadow-primary/30 hidden rounded-xl px-5 py-2.5 text-sm font-bold text-white shadow-lg transition-all md:flex"
+      >
+        Contáctanos
+      </a>
+
+      <!-- Mobile Button -->
+      <MobileMenuButton />
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <MobileMenu />
+</header>
+
+<script is:inline>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('max-h-0')) {
+      mobileMenu.classList.remove('max-h-0');
+      mobileMenu.classList.add('max-h-96');
+    } else {
+      mobileMenu.classList.add('max-h-0');
+      mobileMenu.classList.remove('max-h-96');
+    }
+  });
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('max-h-0');
+      mobileMenu.classList.remove('max-h-96');
+    });
+  });
+</script>
