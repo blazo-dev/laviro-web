@@ -1,4 +1,5 @@
 ---
+import Form from '../contact/Form.astro';
 import Brand from './Brand.astro';
 import FooterColumn from './FooterColumn.astro';
 import FooterLink from './FooterLink.astro';
@@ -35,6 +36,8 @@ const socialLinks = [
 
 <footer class="bg-surface text-foreground p-10">
   <div class="mx-auto max-w-7xl">
+    <Form />
+
     <div class="border-border grid grid-cols-1 gap-8 border-t pt-10 md:grid-cols-4">
       <Brand />
 
